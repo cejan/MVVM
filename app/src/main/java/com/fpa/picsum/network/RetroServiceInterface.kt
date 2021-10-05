@@ -8,8 +8,6 @@ import retrofit2.http.Query
 
 interface RetroServiceInterface {
 
-
-
     @GET("list")
     suspend fun getDataFromAPI(
         @Query("page") page: Int,
@@ -21,6 +19,12 @@ interface RetroServiceInterface {
         @Query("page") page: Int,
         @Query("limit") size: Int
     ): List<PicSum>
+
+    @GET("list")
+    suspend fun getDataList1(
+        @Query("page") page: Int,
+        @Query("limit") size: Int
+    ): Response<List<PicSum>>
 
 
 }

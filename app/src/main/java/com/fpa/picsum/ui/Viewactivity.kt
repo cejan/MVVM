@@ -31,7 +31,7 @@ class ViewActivity : AppCompatActivity() {
     }
 
     private fun initViewModel(author: String, url: String) {
-
+     //   viewModel.getdata(id).observe(this, Observer {
             Glide.with(imageView)
                 .load(url)
                 .placeholder(R.drawable.placeholder)
@@ -40,9 +40,8 @@ class ViewActivity : AppCompatActivity() {
                 .into(imageView)
             textView_author.text = author
 
-
+      //  })
     }
-
 
 
 }

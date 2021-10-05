@@ -8,14 +8,19 @@ import androidx.room.PrimaryKey
 data class PicSum(
 
     @PrimaryKey(autoGenerate = true)
+    val id1: Int = 0,
+
     @ColumnInfo(name = "id")
-    val id: Int = 0,
+    val id: String?,
 
     @ColumnInfo(name = "author")
     val author: String?,
 
     @ColumnInfo(name = "download_url")
-    val download_url: String?
+    val download_url: String?,
+
+    var page: Int?
+
     )
 
 

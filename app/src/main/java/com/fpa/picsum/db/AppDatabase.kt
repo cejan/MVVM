@@ -6,11 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.fpa.picsum.model.PicSum
 
-@Database(entities = [PicSum::class, RemoteKey::class], version = 2, exportSchema = false)
+@Database(entities = [PicSum::class, PageKey::class], version = 2, exportSchema = false)
 abstract class AppDatabase: RoomDatabase() {
 
     abstract fun getAppDao(): AppDao
-    abstract fun getKeysDao(): RemoteKeyDao
+    abstract fun getKeysDao(): PageKeyDao
 
     companion object {
         private var DB_INSTANCE: AppDatabase? = null

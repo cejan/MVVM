@@ -35,6 +35,9 @@ class RecyclerAdapter : PagingDataAdapter<PicSum,
             override fun areContentsTheSame(oldItem: PicSum, newItem: PicSum): Boolean {
                 return oldItem == newItem
             }
+            override fun getChangePayload(oldItem: PicSum, newItem: PicSum): Any {
+                return Any()
+            }
         }
     }
 
@@ -45,11 +48,9 @@ class RecyclerAdapter : PagingDataAdapter<PicSum,
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        when(holder) {
-            else -> {
+
                 holder.bind(getItem(position)!!)
-            }
-        }
+
     }
 
     inner class MyViewHolder(view: View, listener: OnItemClickListener): RecyclerView.ViewHolder(view)  {

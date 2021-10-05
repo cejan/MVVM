@@ -11,7 +11,7 @@ import javax.inject.Inject
 class ViewActivityViewModel @Inject constructor(private val repository: RetroRepository)
     : ViewModel() {
 
-    fun getdata(id: Int): LiveData<PicSum> {
+    fun getdata(id: String): LiveData<PicSum> {
         return repository.getOneRecord(id)
     }
 

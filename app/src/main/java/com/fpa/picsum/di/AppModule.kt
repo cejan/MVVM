@@ -1,6 +1,7 @@
 package com.fpa.picsum.di
 
 import android.app.Application
+import com.fpa.picsum.Constants.BASE_URL
 import com.fpa.picsum.db.AppDao
 import com.fpa.picsum.db.AppDatabase
 import com.fpa.picsum.network.RetroServiceInterface
@@ -33,8 +34,6 @@ class AppModule {
         return appDatabase.getAppDao()
     }
 
-    val BASE_URL = "https://picsum.photos/v2/"
-
     @Provides
     @Singleton
     fun getRetroServiceInstance(retrofit: Retrofit): RetroServiceInterface {
@@ -48,8 +47,6 @@ class AppModule {
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
-
     }
 
 

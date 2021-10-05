@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.fpa.picsum.R
 import com.fpa.picsum.adapter.RecyclerAdapter
 import com.fpa.picsum.databinding.ActivityMainBinding
-import com.fpa.picsum.viewmodel.MainActivityViewModel1
+import com.fpa.picsum.viewmodel.MainActivityViewModel
 
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
@@ -29,12 +29,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerViewAdapter: RecyclerAdapter
     private lateinit var binding: ActivityMainBinding
 
-    private val viewModel1: MainActivityViewModel1 by viewModels()
+    private val viewModel: MainActivityViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initViewModel()
@@ -70,7 +69,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun recyclerViewRefresh(){
         lifecycleScope.launch {
-            viewModel1.listData.collect {
+            viewModel.listData.collect {
                 recyclerViewAdapter.submitData(it)
             }
 
@@ -90,7 +89,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initMainViewModel() {
         lifecycleScope.launch {
-            viewModel1.dataSource.collectLatest {
+            viewModel.dataSource.collectLatest {
                 recyclerViewAdapter.submitData(it)
             }
         }
